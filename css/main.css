@@ -530,7 +530,7 @@ body {
 }
 
 /* Listado 3D */
-#tresd .item h2 {
+.tresd .item h2 {
     height: 70px;
     line-height: 70px;
     font-size: 30px;
@@ -540,7 +540,7 @@ body {
     margin: 0;
 }
 
-#tresd .item h2 .number {
+.tresd .item h2 .number {
     display: inline;
     vertical-align: middle;
     margin-right: 10px;

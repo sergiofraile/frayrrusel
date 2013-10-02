@@ -12,20 +12,9 @@ body {
 
 .frayrrusel-page {
     position: absolute;
-}
-
-.testDiv {
-    height: 400px;
-    width: 400px;
     transform:  matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 200, 1);
 }
 
-.testPadding {
-    width: 380px;
-    height: 380px;
-    margin: 10px;
-    background-color: white;
-}
 .frayrrusel-perspective {
 
     position: absolute;
@@ -39,8 +28,6 @@ body {
     height: 100%;
     perspective: 2500px;
     perspective-origin: 200px;
-    -webkit-perspective: 2500px;
-    -webkit-perspective-origin: 200px;
 }
 
 .frayrrusel-animate-page {
@@ -72,7 +59,7 @@ body {
     background-color: chocolate;
 }
 #page-9{
-    background-color: black;
+    background-color: yellow;
 }
 #page-10{
     background-color: brown;
