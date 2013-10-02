@@ -1,0 +1,810 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Estilos
+   ========================================================================== */
+
+body {
+    min-width: 1024px;
+    /* overflow: hidden; */
+}
+.container {
+    width: 1024px;
+}
+
+.italic { font-style: italic; }
+.normal { font-style: normal; }
+.thin { font-weight: 400; }
+.bold { font-weight: 700; }
+.no-trans { text-transform: none!important; }
+.upp { text-transform: uppercase!important; }
+
+.navigation ul, nav > ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+[class^="btn-"] {
+    display: inline-block; *display: inline; *zoom: 1;
+    text-align: center;
+}
+[class^="btn-"]:hover {
+    text-decoration: none;
+}
+
+/* Cabecera */
+#header, #footer {
+    position: fixed;
+    width: 100%;
+    background: #f6f6f6;
+    z-index: 1;
+}
+#header {
+    top: 0;
+    height: 160px;
+    padding: 25px 0 0;
+    border-bottom: 1px solid #d9d9d9;
+    box-shadow: 0 2px 2px rgba(0,0,0,.1);
+}
+#selection  #header {
+    height: 88px;
+    padding: 10px 0 0;
+}
+#header .container {
+    position: relative;
+}
+#header .hide-click {
+    position: absolute;
+    bottom: -67px; right: 43px;
+    display: block;
+    width: 16px; height: 47px;
+    background: url(../img/hide-click.png) no-repeat transparent;
+}
+
+/* Título */
+#header .title {
+    border-bottom: 2px solid #ad2f92;
+    margin: 0 0 10px 20px;
+}
+#header .title-sin {
+    margin-left: 0;
+}
+#selection  #header .title {
+    border-bottom: none;
+}
+#selection  #header .title .btn-dropdown {
+    display: none;
+}
+.number {
+    display: inline-block; *display: inline; *zoom: 1;
+    font-family: 'Buenard', serif;
+    font-weight: 700;
+}
+#header .title .number {
+    position: relative;
+    top: 2px;
+    height: 60px; width: 60px;
+    margin: 0 15px 0 -20px!important;
+    line-height: 50px;
+    font-size: 42px;
+    text-align: center;
+    color: #fff;
+    background: #ad2f92;
+    border-radius: 15px 15px 0 15px;
+}
+#header .title h1 {
+    display: inline-block; *display: inline; *zoom: 1;
+    font-size: 32px;
+    line-height: 60px;
+    color: #ad2f92;
+    margin: 0;
+}
+.btn-white {
+    background: #fff;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 -1px 1px rgba(0,0,0,.1) inset;
+}
+.btn-dropdown {
+    position: relative;
+    top: -3px;
+    margin-left: 15px;
+    width: 20px; height: 20px;
+    line-height: 20px;
+}
+.btn-dropdown .caret {
+    position: relative;
+    left: -1px;
+}
+.link-grey, .user-link{
+    font-family: sans-serif;
+}
+#selection .btn-group{
+    margin-top: 8px;
+}
+.link-grey, .link-grey:hover{
+    color: #6b6b6b;
+}
+#selection #footer .link-grey, #selection #footer .link-grey:hover{
+    color: #bbb;
+}
+#header .link-back {
+    position: relative;
+    top: -2px;
+}
+.sep {
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 1px dotted #aaa;
+}
+.btn-grey-grad, #side-nav ul li a, #side-nav .side-nav-show {
+    background: rgb(252,252,252);
+    background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(217,217,217,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(217,217,217,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(217,217,217,1) 100%);
+    background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(217,217,217,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(217,217,217,1) 100%);
+    background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(217,217,217,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#d9d9d9',GradientType=0 );
+}
+.btn-grey-grad {
+    color: #010101;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.btn-grey-grad.active {
+    color: #a5a5a5;
+    background: #555;
+}
+.btn-grey-grad.active:hover {
+    color: #a5a5a5;
+}
+.btn-group .btn-grey-grad {
+    padding: 0 6px;
+}
+.btn-font, .btn-list, .btn-3d {
+    position: relative;
+    top: -1px;
+    width: 30px; height: 30px;
+    line-height: 30px;
+    padding: 0;
+    font-family: 'Buenard', serif;
+}
+#header .title .pull-right {
+    position: relative;
+    top: 20px;
+}
+#selection #header .title .pull-right {
+    top: 4px;
+}
+
+/* Sub Titulo */
+#header .sub-title{
+    padding-left: 20px;
+}
+#header .sub-title .number{
+    font-size: 32px;
+    color: #ad2f92;
+}
+#header .sub-title h2{
+    display: inline-block; *display: inline; *zoom: 1;
+    font-size: 32px;
+    margin: 0;
+}
+.btn-corner {
+    border-radius: 10px 10px 0 10px;
+}
+.btn-grey-grad:hover {
+    color: #010101;
+}
+#header .btn-corner {
+    width: 34px; height: 34px;
+    line-height: 34px;
+    font-size: 24px;
+    color: #656472;
+}
+#header .on .icon-star {
+    color: #ad2f92;
+}
+
+/* Selección de sección */
+#header .pagination {
+    position: relative;
+    top: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.05);
+}
+#header .pagination a {
+    padding: 6px 20px;
+    color: #545454;
+}
+#header .pagination .active a {
+    color: #fff;
+    border-color: #545454;
+    background-color: #545454;
+}
+
+/* Navegación Lateral */
+#selection #side-nav {
+    display: none;
+}
+#side-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    margin-top: -37.5px;
+    z-index: 999;
+}
+#side-nav.on {
+    margin-top: -169px;
+}
+#side-nav ul {
+    display: none;
+}
+#side-nav.on ul {
+    display: block;
+}
+#side-nav li {
+    position: relative;
+}
+#side-nav li a, #side-nav .side-nav-show{
+    display: block;
+    width: 36px; height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #494949;
+    border: solid #d9d9d9;
+    border-width: 1px 1px 1px 0;
+    border-radius: 0 5px 5px 0;
+}
+#side-nav li a:hover, #side-nav .side-nav-show:hover{
+    text-decoration: none;
+}
+#side-nav li .badge, #side-nav .side-nav-show .badge{
+    position: absolute;
+    top: -10px; right: -10px;
+    background: #ad2f92;
+    padding: 2px 4px;
+    font-weight: normal;
+    border: 2px solid #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,.8);
+}
+#side-nav .back a{
+    width: 24px; height: 24px;
+    line-height: 24px;
+    color: #ad2f92;
+}
+#side-nav.on .side-nav-show{
+    display: none;
+}
+#side-nav .side-nav-show {
+    position: relative;
+    width: 30px; height: 75px;
+    line-height: 75px;
+    color: #ad2f92;
+}
+
+/* Cuerpo */
+#desarrollo {
+    padding: 160px 0 55px; /* Solo para probar */
+}
+#selection #desarrollo {
+    padding-top: 88px;
+}
+#desarrollo .apdo{
+    padding: 0 35px;
+}
+#desarrollo .apdo h2{
+    font-size: 22px;
+}
+#desarrollo .apdo p{
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+#desarrollo article .pic{
+    position: relative;
+}
+#desarrollo .apdo  .pic-margin{
+    margin-top: 55px;
+}
+.corner-button{
+    position: absolute;
+    bottom: -40px; right: -40px;
+    display: block;
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    text-align: center;
+    border-radius: 40px;
+    background: #aaa;
+}
+.corner-button:hover{
+    color: #fff;
+    background: #ccc;
+}
+.corner-button i{
+    position: absolute;
+    top: 16px; left: 16px;
+}
+#desarrollo .apdo .pic-footer{
+    margin: 10px 0;
+    line-height: 20px;
+}
+
+/* Galería de imágenes */
+#desarrollo .media h3{
+    font-family: sans-serif;
+    font-size: 16px;
+}
+#desarrollo .media-bottom{
+    padding: 10px 5px;
+    margin-bottom: 15px;
+    background: #eee;
+    border-radius: 10px;
+}
+#desarrollo .gallery-navigation li{
+    display: block;
+    float: left;
+    width: 20%;
+    height: 89px;
+}
+#desarrollo .gallery-navigation li a{
+    display: block;
+    margin: 0 5px;
+}
+#desarrollo .gallery-navigation li .pic{
+    border-radius: 8px 8px 0 8px;
+}
+#desarrollo .gallery-navigation li .pic img{
+    width: auto;
+    height: 89px;
+}
+.media-bottom p{
+    padding: 0 15px;
+    margin-bottom: 0!important;
+    font-size: 14px;
+    line-height: 23px!important;
+    color: #666;
+}
+.media-bottom p strong{
+    font-size: 16px;
+    color: #444;
+}
+.media .play {
+    top: 50%; left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+    line-height: 53px;
+    border-radius: 25px;
+}
+
+/* Listado de Unidades */
+#list {
+    padding: 20px 0;
+}
+#list .item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 2px;
+}
+#list .item.active{
+    background: #f7eaf3;
+}
+#list .item header {
+    float: right;
+    width: 735px; height: 131px;
+}
+#list .item h2 {
+    margin: 10px 0 0;
+    font-size: 30px;
+}
+.item h2 .number {
+    position: relative;
+}
+#list .item h2 .number {
+    float: left;
+    top: -62px;
+    font-size: 140px;
+    color: #e5c1db;
+}
+.pic {
+    overflow: hidden;
+    border-radius: 25px 25px 0 25px;
+}
+#list .item .pic {
+    float: left;
+    width: 186px; height: 131px;
+    margin-left: 10px;
+}
+.pic img{
+    width: 100%;
+}
+.video {
+    position: relative;
+}
+.play {
+    position: absolute;
+    top: 50%; left: 50%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(0,0,0,.8);
+}
+#list .item  .play {
+    top: 50%; left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+    line-height: 53px;
+    border-radius: 25px;
+}
+.play:hover, .play:focus, .pic:hover .play {
+    color: #010101;
+    background: rgba(256,256,256,.1);
+    text-decoration: none;
+}
+
+/* Listado 3D */
+#tresd .item h2 {
+    height: 70px;
+    line-height: 70px;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    background: #444;
+    margin: 0;
+}
+
+#tresd .item h2 .number {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 10px;
+    top: -6px;
+    font-size: 60px;
+    color: #ad2f92;
+}
+
+/* Pie */
+#footer {
+    bottom: 0;
+    height: 55px;
+    padding: 15px 0;
+    border-top: 1px solid #d9d9d9;
+    background: #f6f6f6;
+    box-shadow: 0 -2px 2px rgba(0,0,0,.1);
+}
+#selection #footer {
+    height: 50px;
+    border-top: 1px solid #d9d9d9;
+    background: #fff;
+    box-shadow: none;
+}
+#footer .form-search .form-group{
+    margin-bottom: 0;
+}
+#footer .form-search .form-group input{
+    width: 240px;
+}
+.form-search{
+    position: relative;
+}
+.form-search .search-btn{
+    position: absolute;
+    top: 2px;
+    right: 6px;
+    border: 0 none;
+    background: 0;
+    color: #999;
+}
+
+/* Indicadores */
+.indicators {
+    text-align: center;
+    word-spacing: -3px;
+}
+.indicators li {
+    display: inline-block; *display: inline; *zoom: 1;
+    width: 12px; height: 12px;
+    margin: 0 2px;
+    border-radius: 6px;
+    background: #ccc;
+}
+.indicators-vertical li {
+    display: block;
+    margin: 4px 0;
+}
+.indicators .active{
+    background: #6b6b6b;
+}
+.indicators-vertical {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    margin-top: -50px;
+}
+
+/* Imagenes Retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    .hide-click {
+        background-image: url(../img/hide-click@2x.png);
+        background-size: 16px 47px;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir, .btn-search {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before, .btn-search:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
