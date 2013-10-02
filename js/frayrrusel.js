@@ -12,7 +12,7 @@ Frayrrusel = function(){
         widthDelay: 0,
         initMarginLeft: 0,
         marginLeftDelay: 0,
-        animatdMarginTop: -70,
+        animatdMarginTop: -40,
         animationTime: 200
     };
 
