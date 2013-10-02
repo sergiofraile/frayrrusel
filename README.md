@@ -1,7 +1,7 @@
 frayrrusel
 ==========
 
-frayrrusel.js 3D carrusel iOS7 style
+frayrrusel.js: Simulated 3D carrusel Safari iOS7 Tabs style
 
 
 Version state: Beta 0.1
