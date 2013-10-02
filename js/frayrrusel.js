@@ -124,8 +124,8 @@ Frayrrusel = function(){
                     if (!oldPage.hasClass('frayrrusel-hidding')){
                         oldPage.addClass('frayrrusel-hidding');
                         oldPage.transition({
-                            'marginTop': '0px'
-//                            rotateX: maxRotation + 'deg'
+                            'marginTop': '0px',
+                            rotateX: maxRotation + 'deg'
                         }, frayrrusel.config['animationTime'],
                         function(){
                             $(this).removeClass('frayrrusel-animated');
@@ -140,8 +140,8 @@ Frayrrusel = function(){
                         newPage.addClass('frayrrusel-showing');
                         frayrrusel.desactiveAnimatedPages(perspective);
                         newPage.transition({
-                            marginTop:  animatdMarginTop + 'px'
-//                            rotateX: minRotation + 'deg'
+                            marginTop:  animatdMarginTop + 'px',
+                            rotateX: minRotation + 'deg'
                         }, frayrrusel.config['animationTime'],
                         function(){
                             $(this).addClass('frayrrusel-animated');
