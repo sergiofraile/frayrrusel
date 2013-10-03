@@ -12,8 +12,9 @@ Frayrrusel = function(){
         widthDelay: 0,
         initMarginLeft: 0,
         marginLeftDelay: 0,
-        animatdMarginTop: -40,
-        animationTime: 200
+        animatedMarginTop: -40,
+        animationTime: 200,
+        isMobile: false
     };
 
     this.mains = {};
@@ -24,16 +25,19 @@ Frayrrusel = function(){
         this.setOption(options, 'initTop');
         this.setOption(options, 'topDelay');
         this.setOption(options, 'initRotation');
+        this.setOption(options, 'initMinRotation');
         this.setOption(options, 'rotationDelay');
         this.setOption(options, 'initWidth');
         this.setOption(options, 'widthDelay');
         this.setOption(options, 'initMarginLeft');
         this.setOption(options, 'marginLeftDelay');
+        this.setOption(options, 'animatedMarginTop');
         this.setOption(options, 'animationTime');
+        this.setOption(options, 'isMobile');
     };
 
     this.setOption = function(options, option) {
-        this.config[option] = typeof options[option] !== 'undefined' ? this.config[option] : options[option];
+        this.config[option] = typeof options[option] !== 'undefined' ? options[option] : this.config[option];
     };
 
     this.init = function(){
@@ -54,26 +58,34 @@ Frayrrusel = function(){
 
     this.initPerspective = function(perspective){
         var elements = this.getElementsFromPerspective(perspective);
+
         if (elements.length) {
-            var transformFactor = this.config['initTransformFactor'];
-            var top = this.config['initTop'];
-            var rotation = this.config['initRotation'];
-            var minRotation = this.config['initMinRotation'];
-            var width = this.config['initWidth']
-            var marginLeft = this.config['initMarginLeft'];
-            var frayrrusel = this;
+
+            var transformFactor     = this.config['initTransformFactor'];
+            var top                 = this.config['initTop'];
+            var rotation            = this.config['initRotation'];
+            var width               = this.config['initWidth']
+            var marginLeft          = this.config['initMarginLeft'];
+            var frayrrusel          = this;
 
             elements.each(function(key, value){
                 $(this).css('z-index', key);
                 $(this).css('width', width);
                 $(this).css('top', top + 'px');
                 $(this).css('margin-left', marginLeft);
+
                 if (key == 0) {
-                    $(this).css('margin-top', '-50px');
+                    if (!frayrrusel.config.isMobile){
+                        $(this).css('margin-top', frayrrusel.config['animatedMarginTop'] + 'px');
+                    }
                 }
+
                 $(this).css('transform', 'rotateX(' + rotation + 'deg)');
                 $(this).css('-moz-transform', 'rotateX(' + rotation + 'deg)');
                 $(this).css('-webkit-transform', 'rotateX(' + rotation + 'deg)');
+                $(this).css('-o-transform', 'rotateX(' + rotation + 'deg)');
+                $(this).css('-ms-transform', 'rotateX(' + rotation + 'deg)');
+
                 transformFactor += frayrrusel.config['transformDelay'];
                 top += frayrrusel.config['topDelay'];
                 rotation += frayrrusel.config['rotationDelay'];
@@ -103,14 +115,15 @@ Frayrrusel = function(){
     };
 
     this.applyScrollAnimation = function(main) {
-        if (this.mainExist(main)) {
+        if (!this.config.isMobile && this.mainExist(main)) {
+
             var perspective         = this.getPerspectiveFromMain(main);
             var elements            = this.getElementsFromPerspective(perspective);
             var numElements         = elements.length;
             var scrollLength        = main[0].scrollHeight - main[0].clientHeight;
             var maxRotation         = this.config['initRotation'];
             var minRotation         = this.config['initMinRotation'];
-            var animatdMarginTop    = this.config['animatdMarginTop'];
+            var animatedMarginTop    = this.config['animatedMarginTop'];
             var scrollPerctentage   = scrollLength / (numElements - 1);
             var frayrrusel          = this;
             var element             = 1;
@@ -122,7 +135,9 @@ Frayrrusel = function(){
 
                     var oldPage = frayrrusel.getPageFromPerspective(perspective, element);
                     if (!oldPage.hasClass('frayrrusel-hidding')){
+
                         oldPage.addClass('frayrrusel-hidding');
+
                         oldPage.transition({
                             'marginTop': '0px',
                             rotateX: maxRotation + 'deg'
@@ -131,22 +146,26 @@ Frayrrusel = function(){
                             $(this).removeClass('frayrrusel-animated');
                             $(this).removeClass('frayrrusel-hidding');
                         });
+
                     }
 
                     element = auxElement;
 
                     var newPage = frayrrusel.getPageFromPerspective(perspective, element);
                     if (!newPage.hasClass('frayrrusel-showing')){
+
                         newPage.addClass('frayrrusel-showing');
+
                         frayrrusel.desactiveAnimatedPages(perspective);
                         newPage.transition({
-                            marginTop:  animatdMarginTop + 'px',
+                            marginTop:  animatedMarginTop + 'px',
                             rotateX: minRotation + 'deg'
                         }, frayrrusel.config['animationTime'],
                         function(){
                             $(this).addClass('frayrrusel-animated');
                             $(this).removeClass('frayrrusel-showing');
                         });
+
                     }
                 }
             });
