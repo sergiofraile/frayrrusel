@@ -1,3 +1,5 @@
+var frayrrusel;
+
 Frayrrusel = function(){
 
     this.config = {
@@ -66,7 +68,6 @@ Frayrrusel = function(){
             var rotation            = this.config['initRotation'];
             var width               = this.config['initWidth']
             var marginLeft          = this.config['initMarginLeft'];
-            var frayrrusel          = this;
 
             elements.each(function(key, value){
                 $(this).css('z-index', key);
@@ -125,7 +126,6 @@ Frayrrusel = function(){
             var minRotation         = this.config['initMinRotation'];
             var animatedMarginTop    = this.config['animatedMarginTop'];
             var scrollPerctentage   = scrollLength / (numElements - 1);
-            var frayrrusel          = this;
             var element             = 1;
 
             main.scroll(function(){
@@ -139,13 +139,13 @@ Frayrrusel = function(){
                         oldPage.addClass('frayrrusel-hidding');
 
                         oldPage.transition({
-                            'marginTop': '0px',
-                            rotateX: maxRotation + 'deg'
-                        }, frayrrusel.config['animationTime'],
-                        function(){
-                            $(this).removeClass('frayrrusel-animated');
-                            $(this).removeClass('frayrrusel-hidding');
-                        });
+                                'marginTop': '0px',
+                                rotateX: maxRotation + 'deg'
+                            }, frayrrusel.config['animationTime'],
+                            function(){
+                                $(this).removeClass('frayrrusel-animated');
+                                $(this).removeClass('frayrrusel-hidding');
+                            });
 
                     }
 
@@ -158,13 +158,13 @@ Frayrrusel = function(){
 
                         frayrrusel.desactiveAnimatedPages(perspective);
                         newPage.transition({
-                            marginTop:  animatedMarginTop + 'px',
-                            rotateX: minRotation + 'deg'
-                        }, frayrrusel.config['animationTime'],
-                        function(){
-                            $(this).addClass('frayrrusel-animated');
-                            $(this).removeClass('frayrrusel-showing');
-                        });
+                                marginTop:  animatedMarginTop + 'px',
+                                rotateX: minRotation + 'deg'
+                            }, frayrrusel.config['animationTime'],
+                            function(){
+                                $(this).addClass('frayrrusel-animated');
+                                $(this).removeClass('frayrrusel-showing');
+                            });
 
                     }
                 }
@@ -173,16 +173,18 @@ Frayrrusel = function(){
     };
 
     this.desactiveAnimatedPages = function(perspective) {
-        perspective.find('.frayrrusel-animated').each(function(){
-            $(this).transition({
-                'marginTop': '0px',
-                rotateX: '-40deg'
-            }, frayrrusel.config['animationTime'],
-            function(){
-                $(this).removeClass('frayrrusel-animated');
-                $(this).removeClass('frayrrusel-hidding');
+        if (!this.config.isMobile) {
+            perspective.find('.frayrrusel-animated').each(function(){
+                $(this).transition({
+                        'marginTop': '0px',
+                        rotateX: '-40deg'
+                    }, frayrrusel.config['animationTime'],
+                    function(){
+                        $(this).removeClass('frayrrusel-animated');
+                        $(this).removeClass('frayrrusel-hidding');
+                    });
             });
-        });
+        }
     };
 
     this.start = function(options){
@@ -193,10 +195,13 @@ Frayrrusel = function(){
 
         this.init();
 
-        var frayrrusel = this;
+        frayrrusel = this;
 
         this.mains.each(function(){
             frayrrusel.initPerspective(frayrrusel.getPerspectiveFromMain($(this)));
         });
+
     };
 };
+
+frayrrusel = new Frayrrusel();
