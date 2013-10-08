@@ -42,7 +42,7 @@ Frayrrusel = function(){
         this.config[option] = typeof options[option] !== 'undefined' ? options[option] : this.config[option];
     };
 
-    this.init = function(){
+    this.init = function() {
         this.getPerspectives();
     };
 
@@ -58,7 +58,7 @@ Frayrrusel = function(){
         return $(main).find('.frayrrusel-perspective:first');
     }
 
-    this.initPerspective = function(perspective){
+    this.initPerspective = function(perspective) {
         var elements = this.getElementsFromPerspective(perspective);
 
         if (elements.length) {
@@ -131,6 +131,11 @@ Frayrrusel = function(){
             main.scroll(function(){
                 var auxElement = Math.ceil(main[0].scrollTop / scrollPerctentage);
                 auxElement++;
+
+                if (auxElement > numElements) {
+                    auxElement = numElements;
+                }
+
                 if (auxElement != element) {
 
                     var oldPage = frayrrusel.getPageFromPerspective(perspective, element);
@@ -146,7 +151,6 @@ Frayrrusel = function(){
                                 $(this).removeClass('frayrrusel-animated');
                                 $(this).removeClass('frayrrusel-hidding');
                             });
-
                     }
 
                     element = auxElement;
